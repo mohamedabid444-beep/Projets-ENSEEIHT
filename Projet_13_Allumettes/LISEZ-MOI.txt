@@ -1,0 +1,79 @@
+--------------------------------------------------------------------------------
+Nom       : ABID
+Prénom    : Mohamed
+Groupe TP : D
+--------------------------------------------------------------------------------
+
+Consigne : Dans ce fichier, les « ... » indiquent les endroits à compléter.
+Il s'agit de remplacer les « ... » par votre texte.  Merci de laisser une
+ligne blanche avant.  Le texte déjà écrit doit être conservé !
+
+
+=====[ Temps passé ]============================================================
+
+Ces informations de temps sont demandées à titre indicatif et ne sont pas
+prises en compte dans la notation du projet.
+Il faut remplacer les ... par des nombres.
+
+
+* Temps passé sur la V1 : 15 heures 30 minutes
+* Temps passé sur la V2 : ... heures ... minutes
+
+Pour la V2 on ne tiendra pas compte du temps passé sur la V1.
+
+
+=====[ Questions ]==============================================================
+
+--------------------------------------------------------------------------------
+Pourquoi l'exception OperationInterditeException ne peut pas être définie
+comme vérifiée par le compilateur ?
+--------------------------------------------------------------------------------
+
+Car si elle était vérifiée, il faudrait modifier l'interface Strategie pour ajouter throws OperationInterditeException à la signature de getPris et toutes les classes implémentant cette interface (Humain, Rapide, etc...) seraient alors obligées de gérer ou de déclarer cette exception.
+
+--------------------------------------------------------------------------------
+Expliquer ce qu'il faut faire pour ajouter un nouveau niveau de jeu, par
+exemple la stratégie lente (C13).  Pour plus de précision, on numérotera
+les étapes à faire.
+--------------------------------------------------------------------------------
+
+Pour ajouter un nouveau niveau de jeu ( exemple la stratégie lente) il faut :
+1) Créer une classe nommée "lente" qui implémente la l'interface stratégie (qui est le type d'un attribut de la classe joueur)
+2) Puis il faut modifier la classe jouer, exactement dans la fonction initJoueur pour prendre en compte le fait qu'on peut avoir lent comme paramètre d'entré et dans ce cas il faut initialiser le joueur avec la strategie lente.
+
+--------------------------------------------------------------------------------
+Expliquer ce qui permet, dans votre conception, de changer dynamiquement
+(en cours d'exécution du programme) la stratégie d'un joueur (C14).
+--------------------------------------------------------------------------------
+
+Au début quand j'ai vu la condition C13 j'ai opté pour faire les stratégies (expert/rapide/...) comme des sous classes de joueur (que je met comme classe abstraite) mais quand j'ai vu la condition C14 ça a tout changé car avec mon idée on ne peut pas se permettre de changer dynamiquement la stratégie d'un joueur une fois choisie.
+
+D'autre part j'ai pensé à faire un attribut strategie et je gère la fonction getprise avec if/else mais ca ne respecte pas la condition C13.
+
+Donc j'ai opté pour créer une nouvelle interface "stratégie" ( qui est un attribut de joueur ) et les modes expert/rapide/humain/... implémente cette interface. Dès lors je respecte les deux conditions C13 et C14.
+
+--------------------------------------------------------------------------------
+Indiquer les points qui ont été les plus difficiles à traiter et pourquoi.
+--------------------------------------------------------------------------------
+
+Les points les plus difficiles de ce projet c'était l'architecture que je vais choisir, notamment la conception de la classe Joueur afin qu'elle verifie les deux conditions C13 et C14.
+Aussi trouver l'algorithme du mode expert n'était pas très facile.
+Mais le point le plus délicat a été la mise en place de la procuration. Il fallait bien comprendre que le joueur ne doit pas manipuler le JeuReel directement mais une interface sécurisée. 
+
+--------------------------------------------------------------------------------
+Quel bilan tirez-vous de ce projet ?
+--------------------------------------------------------------------------------
+
+Le bilan que je tire est l'importance d'une architecture solide avant de commencer à coder. Une fois cette architecture est claire et faite correctement et clairement ( avec un diagramme UML même si il n'est pas trop détaillé), elle facilite énormement le travaille et permet de réaliser un projet de manière beaucoup plus fluide, facile et surtout organisé surtout face à des changements faits plus tard.
+
+
+=====[ Explications ]===========================================================
+
+--------------------------------------------------------------------------------
+Donner ici les explications supplémentaires utiles à la compréhension du
+travail rendu.
+--------------------------------------------------------------------------------
+
+...
+
+--------------------------------------------------------------------------------
